@@ -1,0 +1,490 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Projets — Khaled Chouchane</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.projects-grid {
+				display: grid !important;
+				grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)) !important;
+				gap: 22px !important;
+				margin-top: 20px !important;
+				list-style: none !important;
+				padding: 0 !important;
+			}
+			.project-card {
+				background: #ffffff !important;
+				border: 1.5px solid #e8e8e8 !important;
+				border-top: 4px solid #f56565 !important;
+				border-radius: 10px !important;
+				padding: 22px 20px !important;
+				display: flex !important;
+				flex-direction: column !important;
+				gap: 10px !important;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+				transition: box-shadow 0.25s, transform 0.25s !important;
+				margin: 0 !important;
+			}
+			.project-card:hover {
+				box-shadow: 0 10px 32px rgba(0,0,0,0.12) !important;
+				transform: translateY(-5px) !important;
+			}
+			.project-card .card-title {
+				font-size: 0.97rem !important;
+				font-weight: 700 !important;
+				color: #1a1a1a !important;
+				margin: 0 0 4px 0 !important;
+				line-height: 1.4 !important;
+				border: none !important;
+				padding: 0 !important;
+			}
+			.project-card .card-desc {
+				font-size: 0.85rem !important;
+				color: #666 !important;
+				line-height: 1.7 !important;
+				margin: 0 !important;
+				flex: 1 !important;
+			}
+			.project-card .card-tags {
+				display: flex !important;
+				flex-wrap: wrap !important;
+				gap: 6px !important;
+				padding: 0 !important;
+				margin: 0 !important;
+				list-style: none !important;
+			}
+			.project-card .card-tags span {
+				background: #fff5f5 !important;
+				color: #c53030 !important;
+				font-size: 0.70rem !important;
+				font-weight: 600 !important;
+				padding: 3px 10px !important;
+				border-radius: 20px !important;
+				border: 1px solid #fed7d7 !important;
+				display: inline-block !important;
+			}
+			.project-card .card-actions {
+				display: flex !important;
+				gap: 10px !important;
+				margin-top: 6px !important;
+			}
+			.project-card .card-actions a {
+				flex: 1 !important;
+				padding: 8px 0 !important;
+				font-size: 0.83rem !important;
+				font-weight: 700 !important;
+				border-radius: 6px !important;
+				text-align: center !important;
+				text-decoration: none !important;
+				display: block !important;
+				transition: background 0.2s, color 0.2s !important;
+				cursor: pointer !important;
+			}
+			.project-card .card-actions a.btn-gh {
+				border: 2px solid #ddd !important;
+				background: transparent !important;
+				color: #333 !important;
+			}
+			.project-card .card-actions a.btn-gh:hover {
+				background: #f0f0f0 !important;
+				color: #111 !important;
+			}
+			.project-card .card-actions a.btn-demo {
+				background: #f56565 !important;
+				border: 2px solid #f56565 !important;
+				color: #fff !important;
+			}
+			.project-card .card-actions a.btn-demo:hover {
+				background: #e04444 !important;
+				border-color: #e04444 !important;
+				color: #fff !important;
+			}
+			.project-card .card-actions a.btn-report {
+				background: #2d3748 !important;
+				border: 2px solid #2d3748 !important;
+				color: #fff !important;
+			}
+			.project-card .card-actions a.btn-report:hover {
+				background: #1a202c !important;
+				color: #fff !important;
+			}
+
+			/* ── ANSYS Video Choice Modal ── */
+			.video-choice-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 14px;
+				padding: 20px;
+			}
+			.video-choice-btn {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 10px;
+				padding: 22px 14px;
+				border-radius: 10px;
+				border: 2px solid #e8e8e8;
+				background: #fafafa;
+				cursor: pointer;
+				transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+				text-align: center;
+				text-decoration: none;
+			}
+			.video-choice-btn:hover {
+				border-color: #f56565;
+				box-shadow: 0 4px 16px rgba(245,101,101,0.15);
+				transform: translateY(-3px);
+				background: #fff5f5;
+			}
+			.video-choice-btn .vc-icon {
+				font-size: 2rem;
+			}
+			.video-choice-btn .vc-title {
+				font-size: 0.88rem;
+				font-weight: 700;
+				color: #1a1a1a;
+				line-height: 1.4;
+			}
+			.video-choice-btn .vc-sub {
+				font-size: 0.75rem;
+				color: #888;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Khaled Chouchane</strong> &nbsp;·&nbsp; Portfolio en génie mécanique</a>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/khaled-chouchane-92b128399" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</header>
+
+					<!-- Projects -->
+					<section>
+						<header class="major">
+							<h2>Mes projets</h2>
+						</header>
+						<p style="color:#777; margin-bottom:1.5em;">Une sélection de projets en simulation numérique, interaction fluide-structure, conception mécanique, calcul scientifique et programmation.</p>
+
+						<div class="projects-grid">
+
+							<!-- PFA -->
+							<div class="project-card">
+								<div class="card-title">LearnFSI — Vérification et validation d'un workflow de cosimulation fluide-structure explicite</div>
+								<div class="card-desc"><strong>Janv. 2026 — Juin 2026 · ENIT · Projet collectif</strong><br />Développement sous Python/NumPy d'un solveur éléments finis pour étudier la stabilité d'un couplage poutre–fluide, comparer six schémas temporels et piloter les simulations avec une interface PySide6.</div>
+								<div class="card-tags">
+									<span>Python</span>
+									<span>NumPy</span>
+									<span>Interaction fluide-structure</span>
+									<span>Éléments finis</span>
+									<span>PySide6</span>
+								</div>
+								<div class="card-actions">
+									<a class="btn-gh" onclick="document.getElementById('videoModalCPC').style.display='flex'">▶ Vidéo</a>
+									<a class="btn-report" onclick="document.getElementById('pdfModalFEM').style.display='flex'">📄 Voir les PDF</a>
+								</div>
+							</div>
+
+							<!-- Turbojet -->
+							<div class="project-card">
+								<div class="card-title">Simulation numérique 2D du procédé de pliage en V sous Abaqus</div>
+								<div class="card-desc"><strong>Avr. 2026 — Mai 2026 · ENIT · Projet collectif</strong><br />Modélisation en déformation plane du pliage d'une tôle d'aluminium, avec loi de Johnson-Cook, contact, maillage CPE4R et amélioration géométrique des outils.</div>
+								<div class="card-tags">
+									<span>Abaqus</span>
+									<span>Éléments finis</span>
+									<span>Élastoplasticité</span>
+									<span>Contact</span>
+								</div>
+								<div class="card-actions">
+									<a href="images/projects/v-bending/report.pdf" target="_blank" class="btn-report">📄 Voir le PDF</a>
+								</div>
+							</div>
+
+							<!-- Vane Pump -->
+							<div class="project-card">
+								<div class="card-title">Simulation numérique d'un essai de traction élastoplastique</div>
+								<div class="card-desc"><strong>Avr. 2026 — Mai 2026 · ENIT · Projet collectif</strong><br />Simulation 3D d'une éprouvette ductile sous chargement imposé, avec écrouissage isotrope, étude de la non-linéarité géométrique et couplage thermomécanique.</div>
+								<div class="card-tags">
+									<span>Abaqus</span>
+									<span>Élastoplasticité</span>
+									<span>Non-linéarité</span>
+									<span>Thermomécanique</span>
+								</div>
+								<div class="card-actions">
+									<a href="images/projects/tensile-test/report.pdf" target="_blank" class="btn-report">📄 Voir le PDF</a>
+								</div>
+							</div>
+
+							<!-- Robot -->
+							<div class="project-card">
+								<div class="card-title">Étude et conception d'une scie électrique industrielle</div>
+								<div class="card-desc"><strong>Avr. 2026 — Mai 2026 · ENIT · Projet collectif</strong><br />Conception sous SolidWorks d'une machine de découpe du bois intégrant un mécanisme bielle-manivelle, une table inversée et des solutions de sécurité adaptées.</div>
+								<div class="card-tags">
+									<span>SolidWorks</span>
+									<span>Conception mécanique</span>
+									<span>Cinématique</span>
+									<span>Sécurité</span>
+								</div>
+								<div class="card-actions">
+									<a class="btn-demo" onclick="document.getElementById('videoModalJet').style.display='flex'">▶ Vidéo</a>
+									<a href="images/projects/industrial-saw/report.pdf" target="_blank" class="btn-report">📄 Voir le PDF</a>
+								</div>
+							</div>
+
+							<!-- ANSYS — UPDATED CARD -->
+							<div class="project-card">
+								<div class="card-title">Conception et modélisation CAO d'une pompe à palettes</div>
+								<div class="card-desc"><strong>Nov. 2025 — Déc. 2025 · ENIT · Projet individuel</strong><br />Conception paramétrique sous CATIA V5 d'une pompe volumétrique à rotor excentré et cinq palettes, depuis les pièces jusqu'à l'assemblage complet.</div>
+								<div class="card-tags">
+									<span>CATIA V5</span>
+									<span>CAO 3D</span>
+									<span>Conception paramétrique</span>
+									<span>Assemblage</span>
+								</div>
+								<div class="card-actions">
+									<a class="btn-demo" onclick="document.getElementById('videoModalVane').style.display='flex'">▶ Vidéo</a>
+									<a href="images/projects/vane-pump/report.pdf" target="_blank" class="btn-report">📄 Voir le PDF</a>
+								</div>
+							</div>
+
+							<!-- FEM -->
+							<div class="project-card">
+								<div class="card-title">Développement en C d'un système de gestion de réservations de voiliers</div>
+								<div class="card-desc"><strong>Avr. 2025 — Juin 2025 · ENIT · Projet collectif</strong><br />Application console modulaire gérant réservations, disponibilités, contrôles de saisie, persistance des données, calcul des montants et statistiques de recettes.</div>
+								<div class="card-tags">
+									<span>Langage C</span>
+									<span>Programmation procédurale</span>
+									<span>Structures de données</span>
+									<span>Persistance</span>
+								</div>
+								<div class="card-actions">
+									<a href="images/projects/sailboat-booking/report.pdf" target="_blank" class="btn-report">📄 Voir le PDF</a>
+								</div>
+							</div>
+
+							<!-- Saw -->
+							<div class="project-card">
+								<div class="card-title">Étude et conception d'une tête de perçage pour profil triangulaire</div>
+								<div class="card-desc"><strong>Févr. 2025 — Mars 2025 · ENIT · Projet collectif</strong><br />Conception d'une tête adaptable sur broche générant une trajectoire triangulaire par train épicycloïdal, avec validation CAO et analyse statique du porte-satellite.</div>
+								<div class="card-tags">
+									<span>SolidWorks</span>
+									<span>Train épicycloïdal</span>
+									<span>Résistance des matériaux</span>
+									<span>Éléments finis</span>
+								</div>
+								<div class="card-actions">
+									<a class="btn-gh" onclick="document.getElementById('videoModalRobot').style.display='flex'">▶ Vidéo</a>
+									<a href="images/projects/triangular-drilling-head/report.pdf" target="_blank" class="btn-report">📄 Voir le PDF</a>
+								</div>
+							</div>
+
+							<!-- Metal Structures -->
+							<div class="project-card">
+								<div class="card-title">Framework mathématique de réseaux de neurones développé avec NumPy</div>
+								<div class="card-desc"><strong>Janv. 2024 — Mars 2024 · IPEIEM · Projet individuel</strong><br />Développement sans framework de Deep Learning d'un moteur configurable intégrant propagation avant, rétropropagation, optimiseur Adam et persistance des modèles.</div>
+								<div class="card-tags">
+									<span>Python</span>
+									<span>NumPy</span>
+									<span>Mathématiques appliquées</span>
+									<span>Deep Learning</span>
+								</div>
+								<div class="card-actions"></div>
+							</div>
+
+							<!-- Adaptive Vocabulary -->
+							<div class="project-card">
+								<div class="card-title">Application d'apprentissage adaptatif du vocabulaire anglais</div>
+								<div class="card-desc"><strong>Juil. 2022 — Août 2022 · Lycée Marsa Saada · Projet individuel</strong><br />Application Python proposant des révisions personnalisées grâce à un tirage pondéré, une modélisation probabiliste de la mémorisation et des rappels espacés inspirés de la courbe d'Ebbinghaus.</div>
+								<div class="card-tags">
+									<span>Python</span>
+									<span>Probabilités</span>
+									<span>Statistiques</span>
+									<span>Apprentissage adaptatif</span>
+								</div>
+								<div class="card-actions">
+									<a href="images/projects/adaptive-vocabulary/report.pdf" target="_blank" class="btn-report">📄 Voir le PDF</a>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- Other Experiences -->
+					<section style="margin-top:3em;">
+						<header class="major">
+							<h2>Autres expériences</h2>
+						</header>
+						<div class="projects-grid">
+							<!-- Robotics Club -->
+							<div class="project-card">
+								<div class="card-title">Engagement associatif — IEEE ENIT &amp; Club Génie Mécanique ENIT</div>
+								<div class="card-desc"><strong>Sept. 2024 — Mai 2026 · ENIT</strong><br />Participation à des activités techniques et associatives, initiation à la CAO, contribution à des événements et formation au sponsoring et à la recherche de partenariats.</div>
+								<div class="card-tags">
+									<span>CAO</span>
+									<span>Collaboration</span>
+									<span>Organisation</span>
+									<span>Sponsoring</span>
+									<span>Partenariats</span>
+								</div>
+								<div class="card-actions"></div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ===== ALL MODALS ===== -->
+
+					<!-- Modal: CPC Video -->
+					<div id="videoModalCPC" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000; align-items:center; justify-content:center;" onclick="if(event.target===this){this.style.display='none'; document.getElementById('ytCPC').src=document.getElementById('ytCPC').src;}">
+						<div style="background:#fff; border-radius:14px; width:92%; max-width:720px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+							<div style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid #eee; background:#fafafa;">
+								<span style="font-size:14px; font-weight:700; color:#333;">LearnFSI — Cosimulation fluide-structure explicite</span>
+								<button onclick="document.getElementById('videoModalCPC').style.display='none'; document.getElementById('ytCPC').src=document.getElementById('ytCPC').src;" style="background:none; border:none; font-size:22px; cursor:pointer; color:#999;">&#x2715;</button>
+							</div>
+							<iframe id="ytCPC" src="https://www.youtube.com/embed/LEARNFSI_VIDEO_ID" style="width:100%; aspect-ratio:16/9; display:block; border:none;" allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<!-- Modal: Turbojet Video -->
+					<div id="videoModalJet" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000; align-items:center; justify-content:center;" onclick="if(event.target===this){this.style.display='none'; document.getElementById('ytJet').src=document.getElementById('ytJet').src;}">
+						<div style="background:#fff; border-radius:14px; width:92%; max-width:720px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+							<div style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid #eee; background:#fafafa;">
+								<span style="font-size:14px; font-weight:700; color:#333;">Étude et conception d'une scie électrique industrielle</span>
+								<button onclick="document.getElementById('videoModalJet').style.display='none'; document.getElementById('ytJet').src=document.getElementById('ytJet').src;" style="background:none; border:none; font-size:22px; cursor:pointer; color:#999;">&#x2715;</button>
+							</div>
+							<iframe id="ytJet" src="https://www.youtube.com/embed/INDUSTRIAL_SAW_VIDEO_ID" style="width:100%; aspect-ratio:16/9; display:block; border:none;" allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<!-- Modal: Vane Pump Video -->
+					<div id="videoModalVane" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000; align-items:center; justify-content:center;" onclick="if(event.target===this){this.style.display='none'; document.getElementById('ytVane').src=document.getElementById('ytVane').src;}">
+						<div style="background:#fff; border-radius:14px; width:92%; max-width:720px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+							<div style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid #eee; background:#fafafa;">
+								<span style="font-size:14px; font-weight:700; color:#333;">Conception et modélisation CAO d'une pompe à palettes</span>
+								<button onclick="document.getElementById('videoModalVane').style.display='none'; document.getElementById('ytVane').src=document.getElementById('ytVane').src;" style="background:none; border:none; font-size:22px; cursor:pointer; color:#999;">&#x2715;</button>
+							</div>
+							<iframe id="ytVane" src="https://www.youtube.com/embed/VANE_PUMP_VIDEO_ID" style="width:100%; aspect-ratio:16/9; display:block; border:none;" allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<!-- Modal: Robot Video -->
+					<div id="videoModalRobot" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000; align-items:center; justify-content:center;" onclick="if(event.target===this){this.style.display='none'; document.getElementById('ytRobot').src=document.getElementById('ytRobot').src;}">
+						<div style="background:#fff; border-radius:14px; width:92%; max-width:720px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+							<div style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid #eee; background:#fafafa;">
+								<span style="font-size:14px; font-weight:700; color:#333;">Étude et conception d'une tête de perçage pour profil triangulaire</span>
+								<button onclick="document.getElementById('videoModalRobot').style.display='none'; document.getElementById('ytRobot').src=document.getElementById('ytRobot').src;" style="background:none; border:none; font-size:22px; cursor:pointer; color:#999;">&#x2715;</button>
+							</div>
+							<iframe id="ytRobot" src="https://www.youtube.com/embed/TRIANGULAR_DRILLING_HEAD_VIDEO_ID" style="width:100%; aspect-ratio:16/9; display:block; border:none;" allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<!-- Modal: FEM Video -->
+					<div id="videoModalFEM" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000; align-items:center; justify-content:center;" onclick="if(event.target===this){this.style.display='none'; document.getElementById('ytFEM').src=document.getElementById('ytFEM').src;}">
+						<div style="background:#fff; border-radius:14px; width:92%; max-width:720px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+							<div style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid #eee; background:#fafafa;">
+								<span style="font-size:14px; font-weight:700; color:#333;">Vidéo de projet — emplacement disponible</span>
+								<button onclick="document.getElementById('videoModalFEM').style.display='none'; document.getElementById('ytFEM').src=document.getElementById('ytFEM').src;" style="background:none; border:none; font-size:22px; cursor:pointer; color:#999;">&#x2715;</button>
+							</div>
+							<iframe id="ytFEM" src="about:blank" style="width:100%; aspect-ratio:16/9; display:block; border:none;" allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<!-- Modal: FEM Reports PDF -->
+					<div id="pdfModalFEM" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000; align-items:center; justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+						<div style="background:#fff; border-radius:14px; width:92%; max-width:480px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+							<div style="display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-bottom:1px solid #eee; background:#fafafa;">
+								<span style="font-size:15px; font-weight:700; color:#333;">📄 &nbsp;Documents LearnFSI</span>
+								<button onclick="document.getElementById('pdfModalFEM').style.display='none'" style="background:none; border:none; font-size:22px; cursor:pointer; color:#999;">&#x2715;</button>
+							</div>
+							<div style="padding:16px; display:flex; flex-direction:column; gap:8px;">
+								<a href="images/projects/learnfsi/report.pdf" target="_blank" style="display:flex; align-items:center; gap:14px; padding:13px 16px; border-radius:10px; border:1.5px solid #e8e8e8; text-decoration:none; color:#222;">
+									<span style="font-size:22px;">📄</span>
+									<div><div style="font-size:14px; font-weight:600;">Rapport technique</div><div style="font-size:12px; color:#999; margin-top:2px;">PDF · Ouvre dans un nouvel onglet</div></div>
+									<span style="margin-left:auto; color:#bbb;">↗</span>
+								</a>
+								<a href="images/projects/learnfsi/presentation.pdf" target="_blank" style="display:flex; align-items:center; gap:14px; padding:13px 16px; border-radius:10px; border:1.5px solid #e8e8e8; text-decoration:none; color:#222;">
+									<span style="font-size:22px;">📄</span>
+									<div><div style="font-size:14px; font-weight:600;">Présentation du projet</div><div style="font-size:12px; color:#999; margin-top:2px;">PDF · Ouvre dans un nouvel onglet</div></div>
+									<span style="margin-left:auto; color:#bbb;">↗</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Modal: Saw Video -->
+					<div id="videoModalSaw" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000; align-items:center; justify-content:center;">
+						<div style="background:#fff; border-radius:14px; width:92%; max-width:720px; overflow:hidden;">
+							<div style="padding:14px 20px;">
+								<span>Vidéo de projet — emplacement disponible</span>
+							</div>
+							<iframe id="ytSaw" src="about:blank" style="width:100%; aspect-ratio:16/9; display:block; border:none;"></iframe>
+						</div>
+					</div>
+
+					<!-- Preserved unused structures -->
+					<div id="galleryModal2" style="display:none;"></div>
+					<div id="galleryModalJet" style="display:none;"></div>
+					<div id="videoModalClub" style="display:none;"><iframe id="ytClub" src="about:blank" style="display:none;"></iframe></div>
+					<div id="videoChoiceModalAnsys" style="display:none;"></div>
+					<div id="videoModalAnsys1" style="display:none;"><iframe id="ytAnsys1" src="about:blank" style="display:none;"></iframe></div>
+					<div id="videoModalAnsys2" style="display:none;"><iframe id="ytAnsys2" src="about:blank" style="display:none;"></iframe></div>
+					<div id="galleryModalAnsys" style="display:none;"></div>
+
+					<!-- Lightbox (shared) -->
+					<div id="lb" onclick="this.style.display='none'" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.93); z-index:2000; align-items:center; justify-content:center; cursor:zoom-out;">
+						<img id="lb-img" src="" style="max-width:90%; max-height:90vh; border-radius:10px; object-fit:contain;">
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#">
+							<input type="text" name="query" id="query" placeholder="Rechercher" />
+						</form>
+					</section>
+					<nav id="menu">
+						<header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">🏠 &nbsp;Accueil</a></li>
+							<li><a href="Education.html">🎓 &nbsp;Formation</a></li>
+							<li><a href="Experience.html">💼 &nbsp;Expériences</a></li>
+							<li><a href="Projects.html">⚙️ &nbsp;Projets</a></li>
+							<li><a href="Skills.html">🛠️ &nbsp;Compétences</a></li>
+						</ul>
+					</nav>
+					<section>
+						<header class="major"><h2>Me contacter</h2></header>
+						<p>Je recherche un stage de fin d'études de six mois à partir de janvier 2027 en Europe francophone, en R&amp;D, calcul de structures, simulation CAE ou bureau d'études.</p>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:chouchanekhaled2022@gmail.com">chouchanekhaled2022@gmail.com</a></li>
+							<li class="icon solid fa-phone">+216 93 003 043</li>
+							<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/khaled-chouchane-92b128399" target="_blank">linkedin.com/in/khaled-chouchane-92b128399</a></li>
+						</ul>
+					</section>
+					<footer id="footer">
+						<p class="copyright">&copy; 2026. Tous droits réservés. Réalisé par Khaled Chouchane.</p>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
